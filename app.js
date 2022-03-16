@@ -6,7 +6,12 @@ const date = require(__dirname + "/date.js");
 const mongoose = require('mongoose');
 const _ = require('lodash');
 
-mongoose.connect("mongodb://admin-Himanshu:EEYOAvZkWwktHwBP@cluster0-shard-00-00.0fx82.mongodb.net:27017,cluster0-shard-00-01.0fx82.mongodb.net:27017,cluster0-shard-00-02.0fx82.mongodb.net:27017/test?replicaSet=atlas-zqsfpz-shard-0&ssl=true&authSource=admin", {
+const dotenv = require("dotenv");
+dotenv.config({ path: "./.env" });
+
+const url = process.env.URL;
+
+mongoose.connect( url, {
   useNewUrlParser: true
 });
 
